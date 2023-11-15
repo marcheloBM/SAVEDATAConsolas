@@ -1,0 +1,51 @@
+PS3
+USB rutas
+	Savedata PS2
+		?:\PS3\EXPORT\PS2SD
+	Savedata PS1
+		?:\PS3\EXPORT\PSV
+	Savedata PS3
+		?:\PS3\SAVEDATA
+	Savedata PSP
+		?:\PSP\SAVEDATA
+FTP rutas
+	savedata PS2
+		/dev_hdd0/home/00000001/ps2emu2_savedata
+	savedata PS1
+		/dev_hdd0/savedata/vmc
+	savedata PS3
+		/dev_hdd0/home/00000001/savedata	
+	savedata PSP
+		/dev_hdd0/home/00000001/minis_savedata
+
+PS4
+USB rutas
+	Savedata APP Apolo
+		?:\PS4\APOLLO
+	Savedata PS4
+		?:\PS4\SAVEDATA
+FTP rutas
+	Savedata PS4 (Los numeros son los Usuario)
+		/user/home/12926a70/savedata
+
+PSP
+USB rutas
+	?:\PSP\SAVEDATA
+FTP rutas
+	No tiene
+
+PSVita
+USB rutas
+	Apolo Save Tool
+		?:\data\savegames
+	Savedata PSVita (Mostrar todas las carpetas para ver)
+		?:\user\00	
+	PSP Adrenaline (Mostrar todas las carpetas para ver)
+		?:\pspemu\PSP\SAVEDATA
+FTP rutas
+	Savedata PSVita
+		ux0:/user/00
+	Apolo Save Tool
+		ux0:data/savegames/
+	PSP Adrenaline
+		ux0:/pspemu/PSP/SAVEDATA

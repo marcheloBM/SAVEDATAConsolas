@@ -1,0 +1,346 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package Cl.SaveData.Consola.GUI;
+
+import Cl.SaveData.Consola.FUN.Directorio;
+import Cl.SaveData.Consola.Conf.*;
+import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.filechooser.FileSystemView;
+
+/**
+ *
+ * @author march
+ */
+public class FrHome extends javax.swing.JFrame {
+
+    Directorio d = new Directorio();
+    static String urlUSB;
+    List<String> rutasAVerificar = List.of("/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA","/PSP/SAVEDATA");
+    
+    /**
+     * Creates new form FrHome
+     */
+    public FrHome() {
+        initComponents();
+        setLocationRelativeTo(null);
+        
+        USB();
+        txtUSB.setText("");
+        txtArchivo.setText("");
+        limpiado();
+    }
+
+    public void limpiado(){
+        jRadioButton1.setSelected(false);
+        jRadioButton1.setText("No Hay SAVEDATA PS2");
+        jRadioButton1.setForeground(Color.RED);
+        jRadioButton2.setSelected(false);
+        jRadioButton2.setText("No Hay SAVEDATA PS1");
+        jRadioButton2.setForeground(Color.RED);
+        jRadioButton3.setSelected(false);
+        jRadioButton3.setText("No Hay SAVEDATA PS3");
+        jRadioButton3.setForeground(Color.RED);
+        jRadioButton4.setSelected(false);
+        jRadioButton4.setText("No Hay SAVEDATA PSP");
+        jRadioButton4.setForeground(Color.RED);
+    }
+    
+    public void USB(){
+        File unidades[] = File.listRoots();
+        jcbUSB.removeAllItems();
+        for(int i=0;i<unidades.length;i++){
+//            System.out.println(unidades[i]);
+//            System.out.println(FileSystemView.getFileSystemView().getSystemDisplayName (unidades[i]));
+            String unidad=FileSystemView.getFileSystemView().getSystemDisplayName (unidades[i]);
+            if(unidad.length()!=0){
+                jcbUSB.addItem(FileSystemView.getFileSystemView().getSystemDisplayName (unidades[i]));
+            }
+        }
+    }
+    
+    public void Contenido(String usb, List<String> rutas){
+        String mensaje ="Carpetas Disponibles";
+        for (String ruta : rutas) {
+            Path rutaAVerificar = Paths.get(usb+""+ruta);
+            try {
+                if (d.rutaExiste(rutaAVerificar)) {
+//                    System.out.println("La ruta " + rutaAVerificar + " existe.");
+                    if (d.carpetaTieneContenido(rutaAVerificar)) {
+//                        System.out.println("La carpeta " + rutaAVerificar + " tiene contenido.");
+//                        txtArchivo.setText("Hay Archivos");
+                        jTextArea1.setText(mensaje=mensaje+"\nHay Archivos:"+rutaAVerificar);
+                       ContenidoPS3(""+ruta);
+                    } else {
+//                        System.out.println("La carpeta " + rutaAVerificar + " está vacía.");
+//                        txtArchivo.setText("No hay Archivos");
+                        jTextArea1.setText(mensaje=mensaje+"\nEstá Vacía:"+rutaAVerificar);
+                    }
+                } else {
+//                    System.out.println("La ruta " + rutaAVerificar + " no existe.");
+//                    txtArchivo.setText("No hay Carpetas");
+                    jTextArea1.setText(mensaje=mensaje+"\nNo Hay Carpetas:"+rutaAVerificar);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("El USB no Contiene nada de nada");
+            }
+        }
+    }
+    
+    public void ContenidoPS3(String rutaCarpeta){
+        System.out.println(rutaCarpeta);
+        if(rutaCarpeta.equals(Confi.PS3PS2)){
+            jRadioButton1.setSelected(true);
+            jRadioButton1.setText("Hay SAVEDATA PS2");
+            jRadioButton1.setForeground(Color.GREEN);
+        }
+        if(rutaCarpeta.equals(Confi.PS3PS1)){
+            jRadioButton2.setSelected(true);
+            jRadioButton2.setText("Hay SAVEDATA PS1");
+            jRadioButton2.setForeground(Color.GREEN);
+        }
+        if(rutaCarpeta.equals(Confi.PS3PS3)){
+            jRadioButton3.setSelected(true);
+            jRadioButton3.setText("Hay SAVEDATA PS3");
+            jRadioButton3.setForeground(Color.GREEN);
+        }
+        if(rutaCarpeta.equals(Confi.PS3PSP)){
+            jRadioButton4.setSelected(true);
+            jRadioButton4.setText("Hay SAVEDATA PSP");
+            jRadioButton4.setForeground(Color.GREEN);
+        }
+        
+    }
+    
+    
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jcbUSB = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
+        txtUSB = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        txtArchivo = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 400));
+
+        jcbUSB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton5.setText("Seleccionar USB");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        txtUSB.setText("jLabel2");
+
+        jPanel1.setName(""); // NOI18N
+
+        jLabel1.setText("SAVEDATA PS3");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jRadioButton1.setText("SAVEDATA PS2");
+
+        jButton1.setText("Copiar ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setText("SAVEDATA PS1");
+
+        jRadioButton3.setText("SAVEDATA PS3");
+
+        jRadioButton4.setText("SAVEDATA PSP");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jRadioButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addComponent(jButton1)))
+                        .addGap(18, 18, 18)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton4)
+                            .addComponent(jButton1))
+                        .addGap(0, 144, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
+        );
+
+        txtArchivo.setText("jLabel2");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcbUSB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5))
+                    .addComponent(txtUSB)
+                    .addComponent(txtArchivo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbUSB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addComponent(txtUSB)
+                .addGap(4, 4, 4)
+                .addComponent(txtArchivo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String usbselect=(String) jcbUSB.getSelectedItem();
+        String usbselect2=usbselect.substring(usbselect.length() - 4);
+        urlUSB=usbselect2.replaceAll("[()]","");
+        //        txtUSB.setText("Unidad USB Seleccionada "+usbselect);
+        txtUSB.setText(usbselect);
+        //jButton1.setEnabled(true);
+        //jButton2.setEnabled(true);
+        //jButton3.setEnabled(true);
+        Contenido(urlUSB,rutasAVerificar);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String mensaje ="Rutas Copiada";
+        for (String ruta : rutasAVerificar) {
+            try {
+                d.copiarDirectorio(Paths.get(urlUSB+""+ruta), Paths.get(System.getProperty("user.dir")+"/SAVEDATA"+ruta));
+                jTextArea1.setText(mensaje=mensaje+"\nCopiado:/SAVEDATA"+ruta);
+            } catch (IOException ex) {
+                Logger.getLogger(FrHome.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrHome().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JComboBox<String> jcbUSB;
+    private javax.swing.JLabel txtArchivo;
+    private javax.swing.JLabel txtUSB;
+    // End of variables declaration//GEN-END:variables
+}
