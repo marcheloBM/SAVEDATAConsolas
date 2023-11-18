@@ -4,11 +4,15 @@
  */
 package Cl.SaveData.Consola.Conf;
 
+import java.util.List;
+
 /**
  *
  * @author march
  */
 public interface Confi {
+    //All Rutas (Revisar)
+    List<String> AllRutas =List.of("/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA","/PSP/SAVEDATA");
     //Rutas SAVEDATA PS3
     static String PS3PS2 = "/PS3/EXPORT/PS2SD";
     static String PS3PS1 = "/PS3/EXPORT/PSV";

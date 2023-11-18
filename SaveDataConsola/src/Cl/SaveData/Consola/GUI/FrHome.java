@@ -24,7 +24,8 @@ public class FrHome extends javax.swing.JFrame {
 
     Directorio d = new Directorio();
     static String urlUSB;
-    List<String> rutasAVerificar = List.of("/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA","/PSP/SAVEDATA");
+    List<String> rutasAVerificar = List.of("/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA","/PSP/SAVEDATA",
+            "/PS4/APOLLO","/PS4/SAVEDATA","/data/savegames","/user/00","/pspemu/PSP/SAVEDATA");
     
     /**
      * Creates new form FrHome
@@ -52,6 +53,24 @@ public class FrHome extends javax.swing.JFrame {
         jRadioButton4.setSelected(false);
         jRadioButton4.setText("No Hay SAVEDATA PSP");
         jRadioButton4.setForeground(Color.RED);
+        jRadioButton5.setSelected(false);
+        jRadioButton5.setText("No Hay SAVEDATA PSP");
+        jRadioButton5.setForeground(Color.RED);
+        jRadioButton6.setSelected(false);
+        jRadioButton6.setText("No Hay SAVEDATA PS4 Apolo");
+        jRadioButton6.setForeground(Color.RED);
+        jRadioButton7.setSelected(false);
+        jRadioButton7.setText("No Hay SAVEDATA PS4");
+        jRadioButton7.setForeground(Color.RED);
+        jRadioButton8.setSelected(false);
+        jRadioButton8.setText("No Hay SAVEDATA PSVita Apolo");
+        jRadioButton8.setForeground(Color.RED);
+        jRadioButton9.setSelected(false);
+        jRadioButton9.setText("No Hay SAVEDATA PSVita");
+        jRadioButton9.setForeground(Color.RED);
+        jRadioButton10.setSelected(false);
+        jRadioButton10.setText("No Hay SAVEDATA PSP Adrenaline");
+        jRadioButton10.setForeground(Color.RED);
     }
     
     public void USB(){
@@ -118,8 +137,35 @@ public class FrHome extends javax.swing.JFrame {
             jRadioButton4.setSelected(true);
             jRadioButton4.setText("Hay SAVEDATA PSP");
             jRadioButton4.setForeground(Color.GREEN);
+            jRadioButton5.setSelected(true);
+            jRadioButton5.setText("Hay SAVEDATA PSP");
+            jRadioButton5.setForeground(Color.GREEN);
         }
-        
+        if(rutaCarpeta.equals(Confi.PS4Apolo)){
+            jRadioButton6.setSelected(true);
+            jRadioButton6.setText("Hay SAVEDATA PS4 Apolo");
+            jRadioButton6.setForeground(Color.GREEN);
+        }
+        if(rutaCarpeta.equals(Confi.PS4PS4)){
+            jRadioButton7.setSelected(true);
+            jRadioButton7.setText("Hay SAVEDATA PS4");
+            jRadioButton7.setForeground(Color.GREEN);
+        }
+        if(rutaCarpeta.equals(Confi.PSVApolo)){
+            jRadioButton8.setSelected(true);
+            jRadioButton8.setText("Hay SAVEDATA PSVita Apolo");
+            jRadioButton8.setForeground(Color.GREEN);
+        }
+        if(rutaCarpeta.equals(Confi.PSVita)){
+            jRadioButton9.setSelected(true);
+            jRadioButton9.setText("Hay SAVEDATA PSVita");
+            jRadioButton9.setForeground(Color.GREEN);
+        }
+        if(rutaCarpeta.equals(Confi.PSPAdrenaline)){
+            jRadioButton10.setSelected(true);
+            jRadioButton10.setText("Hay SAVEDATA PSP Adrenaline");
+            jRadioButton10.setForeground(Color.GREEN);
+        }
     }
     
     
@@ -144,10 +190,19 @@ public class FrHome extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        jRadioButton9 = new javax.swing.JRadioButton();
+        jRadioButton10 = new javax.swing.JRadioButton();
         txtArchivo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setMaximumSize(new java.awt.Dimension(800, 600));
 
         jcbUSB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -183,6 +238,24 @@ public class FrHome extends javax.swing.JFrame {
 
         jRadioButton4.setText("SAVEDATA PSP");
 
+        jLabel2.setText("SAVEDATA PSP");
+
+        jRadioButton5.setText("SAVEDATA PSP");
+
+        jLabel3.setText("SAVEDATA PS4");
+
+        jRadioButton6.setText("SAVEDATA Apolo");
+
+        jRadioButton7.setText("SAVEDATA PS4");
+
+        jLabel4.setText("SAVEDATA PSVita");
+
+        jRadioButton8.setText("SAVEDATA Apolo");
+
+        jRadioButton9.setText("SAVEDATA PSVita");
+
+        jRadioButton10.setText("SAVEDATA PSP Adrenaline");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -190,28 +263,33 @@ public class FrHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton3)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jRadioButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addGap(18, 18, 18)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jRadioButton4)
+                        .addGap(133, 133, 133)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel1)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jLabel2)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jLabel3)
+                    .addComponent(jRadioButton6)
+                    .addComponent(jRadioButton7)
+                    .addComponent(jLabel4)
+                    .addComponent(jRadioButton8)
+                    .addComponent(jRadioButton9)
+                    .addComponent(jRadioButton10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -224,9 +302,25 @@ public class FrHome extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButton4)
                             .addComponent(jButton1))
-                        .addGap(0, 144, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton10)))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         txtArchivo.setText("jLabel2");
@@ -238,14 +332,16 @@ public class FrHome extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jcbUSB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
-                    .addComponent(txtUSB)
-                    .addComponent(txtArchivo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jcbUSB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5))
+                            .addComponent(txtUSB)
+                            .addComponent(txtArchivo))
+                        .addContainerGap(602, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,8 +355,8 @@ public class FrHome extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(txtArchivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -332,11 +428,20 @@ public class FrHome extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
+    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JComboBox<String> jcbUSB;
