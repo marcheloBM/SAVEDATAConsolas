@@ -24,8 +24,6 @@ public class FrHome extends javax.swing.JFrame {
 
     Directorio d = new Directorio();
     static String urlUSB;
-    List<String> rutasAVerificar = List.of("/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA","/PSP/SAVEDATA",
-            "/PS4/APOLLO","/PS4/SAVEDATA","/data/savegames","/user/00","/pspemu/PSP/SAVEDATA");
     
     /**
      * Creates new form FrHome
@@ -71,6 +69,11 @@ public class FrHome extends javax.swing.JFrame {
         jRadioButton10.setSelected(false);
         jRadioButton10.setText("No Hay SAVEDATA PSP Adrenaline");
         jRadioButton10.setForeground(Color.RED);
+        btnPS3.setEnabled(false);
+        btnPSP.setEnabled(false);
+        btnPS4.setEnabled(false);
+        btnPSVita.setEnabled(false);
+        btnAll.setEnabled(false);
     }
     
     public void USB(){
@@ -122,16 +125,22 @@ public class FrHome extends javax.swing.JFrame {
             jRadioButton1.setSelected(true);
             jRadioButton1.setText("Hay SAVEDATA PS2");
             jRadioButton1.setForeground(Color.GREEN);
+            btnPS3.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PS3PS1)){
             jRadioButton2.setSelected(true);
             jRadioButton2.setText("Hay SAVEDATA PS1");
             jRadioButton2.setForeground(Color.GREEN);
+            btnPS3.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PS3PS3)){
             jRadioButton3.setSelected(true);
             jRadioButton3.setText("Hay SAVEDATA PS3");
             jRadioButton3.setForeground(Color.GREEN);
+            btnPS3.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PS3PSP)){
             jRadioButton4.setSelected(true);
@@ -140,31 +149,44 @@ public class FrHome extends javax.swing.JFrame {
             jRadioButton5.setSelected(true);
             jRadioButton5.setText("Hay SAVEDATA PSP");
             jRadioButton5.setForeground(Color.GREEN);
+            btnPS3.setEnabled(true);
+            btnPSP.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PS4Apolo)){
             jRadioButton6.setSelected(true);
             jRadioButton6.setText("Hay SAVEDATA PS4 Apolo");
             jRadioButton6.setForeground(Color.GREEN);
+            btnPS4.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PS4PS4)){
             jRadioButton7.setSelected(true);
             jRadioButton7.setText("Hay SAVEDATA PS4");
             jRadioButton7.setForeground(Color.GREEN);
+            btnPS4.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PSVApolo)){
             jRadioButton8.setSelected(true);
             jRadioButton8.setText("Hay SAVEDATA PSVita Apolo");
             jRadioButton8.setForeground(Color.GREEN);
+            btnPSVita.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PSVita)){
             jRadioButton9.setSelected(true);
             jRadioButton9.setText("Hay SAVEDATA PSVita");
             jRadioButton9.setForeground(Color.GREEN);
+            btnPSVita.setEnabled(true);
+            btnAll.setEnabled(true);
         }
         if(rutaCarpeta.equals(Confi.PSPAdrenaline)){
             jRadioButton10.setSelected(true);
             jRadioButton10.setText("Hay SAVEDATA PSP Adrenaline");
             jRadioButton10.setForeground(Color.GREEN);
+            btnPSVita.setEnabled(true);
+            btnAll.setEnabled(true);
         }
     }
     
@@ -186,7 +208,7 @@ public class FrHome extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        btnPS3 = new javax.swing.JButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
@@ -199,6 +221,10 @@ public class FrHome extends javax.swing.JFrame {
         jRadioButton8 = new javax.swing.JRadioButton();
         jRadioButton9 = new javax.swing.JRadioButton();
         jRadioButton10 = new javax.swing.JRadioButton();
+        btnPSP = new javax.swing.JButton();
+        btnPS4 = new javax.swing.JButton();
+        btnPSVita = new javax.swing.JButton();
+        btnAll = new javax.swing.JButton();
         txtArchivo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -225,10 +251,10 @@ public class FrHome extends javax.swing.JFrame {
 
         jRadioButton1.setText("SAVEDATA PS2");
 
-        jButton1.setText("Copiar ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPS3.setText("Copiar PS3");
+        btnPS3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPS3ActionPerformed(evt);
             }
         });
 
@@ -256,6 +282,29 @@ public class FrHome extends javax.swing.JFrame {
 
         jRadioButton10.setText("SAVEDATA PSP Adrenaline");
 
+        btnPSP.setText("Copiar PSP");
+        btnPSP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPSPActionPerformed(evt);
+            }
+        });
+
+        btnPS4.setText("Copiar PS4");
+        btnPS4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPS4ActionPerformed(evt);
+            }
+        });
+
+        btnPSVita.setText("Copiar PSVita");
+        btnPSVita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPSVitaActionPerformed(evt);
+            }
+        });
+
+        btnAll.setText("Copiar All");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -265,22 +314,28 @@ public class FrHome extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButton2)
                     .addComponent(jRadioButton3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton4)
-                        .addGap(133, 133, 133)
-                        .addComponent(jButton1))
                     .addComponent(jLabel1)
                     .addComponent(jRadioButton1)
                     .addComponent(jLabel2)
-                    .addComponent(jRadioButton5)
                     .addComponent(jLabel3)
                     .addComponent(jRadioButton6)
-                    .addComponent(jRadioButton7)
                     .addComponent(jLabel4)
                     .addComponent(jRadioButton8)
                     .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioButton5)
+                            .addComponent(jRadioButton7)
+                            .addComponent(jRadioButton10))
+                        .addGap(73, 73, 73)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPSVita)
+                            .addComponent(btnPS4)
+                            .addComponent(btnPSP)
+                            .addComponent(btnPS3)
+                            .addComponent(btnAll))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -301,17 +356,21 @@ public class FrHome extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButton4)
-                            .addComponent(jButton1))
+                            .addComponent(btnPS3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton5)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton5)
+                            .addComponent(btnPSP))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton7)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton7)
+                            .addComponent(btnPS4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -319,8 +378,12 @@ public class FrHome extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton10)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton10)
+                            .addComponent(btnPSVita))))
+                .addGap(28, 28, 28)
+                .addComponent(btnAll)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         txtArchivo.setText("jLabel2");
@@ -372,13 +435,13 @@ public class FrHome extends javax.swing.JFrame {
         //jButton1.setEnabled(true);
         //jButton2.setEnabled(true);
         //jButton3.setEnabled(true);
-        Contenido(urlUSB,rutasAVerificar);
+        Contenido(urlUSB,Confi.AllRutas);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnPS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPS3ActionPerformed
         // TODO add your handling code here:
-        String mensaje ="Rutas Copiada";
-        for (String ruta : rutasAVerificar) {
+        String mensaje ="Rutas de PS3 Copiadas";
+        for (String ruta : Confi.AllPS3) {
             try {
                 d.copiarDirectorio(Paths.get(urlUSB+""+ruta), Paths.get(System.getProperty("user.dir")+"/SAVEDATA"+ruta));
                 jTextArea1.setText(mensaje=mensaje+"\nCopiado:/SAVEDATA"+ruta);
@@ -387,7 +450,46 @@ public class FrHome extends javax.swing.JFrame {
             }
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnPS3ActionPerformed
+
+    private void btnPSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPSPActionPerformed
+        // TODO add your handling code here:
+        String mensaje ="Rutas de PSP Copiadas";
+        for (String ruta : Confi.AllPSP) {
+            try {
+                d.copiarDirectorio(Paths.get(urlUSB+""+ruta), Paths.get(System.getProperty("user.dir")+"/SAVEDATA"+ruta));
+                jTextArea1.setText(mensaje=mensaje+"\nCopiado:/SAVEDATA"+ruta);
+            } catch (IOException ex) {
+                Logger.getLogger(FrHome.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnPSPActionPerformed
+
+    private void btnPS4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPS4ActionPerformed
+        // TODO add your handling code here:
+        String mensaje ="Rutas de PSP Copiadas";
+        for (String ruta : Confi.AllPS4) {
+            try {
+                d.copiarDirectorio(Paths.get(urlUSB+""+ruta), Paths.get(System.getProperty("user.dir")+"/SAVEDATA"+ruta));
+                jTextArea1.setText(mensaje=mensaje+"\nCopiado:/SAVEDATA"+ruta);
+            } catch (IOException ex) {
+                Logger.getLogger(FrHome.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnPS4ActionPerformed
+
+    private void btnPSVitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPSVitaActionPerformed
+        // TODO add your handling code here:
+        String mensaje ="Rutas de PSP Copiadas";
+        for (String ruta : Confi.AllPSVita) {
+            try {
+                d.copiarDirectorio(Paths.get(urlUSB+""+ruta), Paths.get(System.getProperty("user.dir")+"/SAVEDATA"+ruta));
+                jTextArea1.setText(mensaje=mensaje+"\nCopiado:/SAVEDATA"+ruta);
+            } catch (IOException ex) {
+                Logger.getLogger(FrHome.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnPSVitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,7 +527,11 @@ public class FrHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAll;
+    private javax.swing.JButton btnPS3;
+    private javax.swing.JButton btnPS4;
+    private javax.swing.JButton btnPSP;
+    private javax.swing.JButton btnPSVita;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

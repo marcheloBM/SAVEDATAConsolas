@@ -32,7 +32,7 @@ PSP
 USB rutas
 	?:\PSP\SAVEDATA
 FTP rutas
-	No tiene
+	/PSP/SAVEDATA
 
 PSVita
 USB rutas

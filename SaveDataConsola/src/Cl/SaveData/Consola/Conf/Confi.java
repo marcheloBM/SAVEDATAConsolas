@@ -12,7 +12,15 @@ import java.util.List;
  */
 public interface Confi {
     //All Rutas (Revisar)
-    List<String> AllRutas =List.of("/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA","/PSP/SAVEDATA");
+    List<String> AllRutas =List.of(
+            "/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA",
+            "/PSP/SAVEDATA",
+            "/PS4/APOLLO","/PS4/SAVEDATA",
+            "/data/savegames", "/user/00", "/pspemu/PSP/SAVEDATA");
+    List<String> AllPS3 =List.of("/PS3/EXPORT/PS2SD", "/PS3/EXPORT/PSV", "/PS3/SAVEDATA","/PSP/SAVEDATA");
+    List<String> AllPSP = List.of("/PSP/SAVEDATA");
+    List<String> AllPS4 = List.of("/PS4/APOLLO","/PS4/SAVEDATA");
+    List<String> AllPSVita = List.of("/data/savegames","/user/00","/pspemu/PSP/SAVEDATA");
     //Rutas SAVEDATA PS3
     static String PS3PS2 = "/PS3/EXPORT/PS2SD";
     static String PS3PS1 = "/PS3/EXPORT/PSV";
