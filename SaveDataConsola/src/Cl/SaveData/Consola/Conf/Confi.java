@@ -34,5 +34,11 @@ public interface Confi {
     static String PSVita = "/user/00";
     static String PSPAdrenaline = "/pspemu/PSP/SAVEDATA";
     
+    //Configuracion Nuevo Update
+    static String repositorio = "https://github.com/marcheloBM/SAVEDATAConsolas";
+    static String versionActual = "1.4";
     
+    //Configuracion de Directorio
+//    static String SO = System.getProperty("os.name");
+    static String Url=System.getProperty("user.dir");
 }

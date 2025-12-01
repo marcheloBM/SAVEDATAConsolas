@@ -4,6 +4,8 @@
  */
 package Cl.SaveData.Consola.FUN;
 
+import Cl.SaveData.Consola.Conf.Confi;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -137,5 +139,22 @@ public class Directorio {
             }
         });
         t.start();
+    }
+    static String SO = System.getProperty("os.name");
+    static String userDir = System.getProperty("user.home");
+    static String Url=Confi.Url;
+    
+    public static void abrirArchivo(String url) throws IOException{
+        File objetofile = new File (url);
+        Desktop.getDesktop().open(objetofile);
+    }
+    public static void abrirDirecPri() throws IOException{
+        if(SO.startsWith("Windows")){
+            File directorio = new File(Url);
+            Desktop.getDesktop().open(directorio);
+        }else{
+            File directorio = new File(userDir );
+            Desktop.getDesktop().open(directorio);
+        }
     }
 }
